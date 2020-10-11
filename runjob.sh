@@ -11,4 +11,4 @@ cat results/$1Results.jtl
 #curl -X POST -d "$HOSTNAME" $1
 
 # Sleep for a few minutes to give pipeline time to retrieve dashboard files
-sleep 600
+#sleep 600
