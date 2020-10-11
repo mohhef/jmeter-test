@@ -1,0 +1,31 @@
+apiVersion: image.openshift.io/v1
+kind: ImageStream
+metadata:
+  creationTimestamp: '2020-10-10T22:25:27Z'
+  generation: 1
+  name: jmeter-test-suite
+  namespace: jmeter-test
+  resourceVersion: '75356'
+  selfLink: >-
+    /apis/image.openshift.io/v1/namespaces/jmeter-test/imagestreams/jmeter-test-suite
+  uid: 7f8b97dd-0b47-11eb-b601-00155d380100
+spec:
+  lookupPolicy:
+    local: false
+status:
+  dockerImageRepository: '172.30.1.1:5000/jmeter-test/jmeter-test-suite'
+  tags:
+    - items:
+        - created: '2020-10-11T01:41:24Z'
+          dockerImageReference: >-
+            172.30.1.1:5000/jmeter-test/jmeter-test-suite@sha256:c6615ffa241b65cd8a215057fbc7746b8adf11b67079b133d934c8b0abc005f8
+          generation: 1
+          image: >-
+            sha256:c6615ffa241b65cd8a215057fbc7746b8adf11b67079b133d934c8b0abc005f8
+        - created: '2020-10-10T22:39:33Z'
+          dockerImageReference: >-
+            172.30.1.1:5000/jmeter-test/jmeter-test-suite@sha256:c232e46d7b1b490f369c83938aabe632a79130e513600b5f81e62959ef3b46b8
+          generation: 1
+          image: >-
+            sha256:c232e46d7b1b490f369c83938aabe632a79130e513600b5f81e62959ef3b46b8
+      tag: latest

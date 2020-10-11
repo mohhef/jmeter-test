@@ -20,7 +20,7 @@ objects:
       spec:
         containers:
         - name: jmeter-test-suite
-          image: jmeter-test-suite:latest
+          image: 172.30.1.1:5000/jmeter-test/jmeter-test-suite
           ports:
             - containerPort: 8080
               protocol: TCP
