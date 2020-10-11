@@ -20,14 +20,14 @@ objects:
       spec:
         containers:
         - name: jmeter-test-suite
-          image: ${IMAGE}
+          image: jmeter-test-suite:latest
           ports:
             - containerPort: 8080
               protocol: TCP
           command:
           - /jmeter/runjob.sh
           args:
-          - ${FILE_NAME}
+          - HttpRequest
           imagePullPolicy: Always
           resources: {}
           terminationMessagePath: /dev/termination-log
@@ -35,11 +35,11 @@ objects:
         restartPolicy: Never
         securityContext: {}
         terminationGracePeriodSeconds: 30
-parameters:
-- description: Test file name
-  name: FILE_NAME
-  required: true
-- description: JMeter image from specific cluster/project
-  name: IMAGE
-  required: true
-  value: jmeter-test-suite
+# parameters:
+# - description: Test file name
+#   name: FILE_NAME
+#   required: true
+# - description: JMeter image from specific cluster/project
+#   name: IMAGE
+#   required: true
+#   value: jmeter-test-suite
