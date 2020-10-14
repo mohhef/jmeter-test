@@ -4,7 +4,7 @@ print "----------------------------------------------------"
 
 node('master'){
 
-  workspace = ${WORKSPACE}   // Set the main workspace in your Jenkins agent
+  workspace = pwd()   // Set the main workspace in your Jenkins agent
 
   authToken = "cL1bn4TXVINKagzl18bcY9shvQXBzqWe-alwCrzIjc4"      // Get your user auth token for OpenShift
   apiURL = "https://192.168.2.37:8443"         // URL for your OpenShift cluster API
