@@ -45,8 +45,8 @@ node('master'){
   // Create your ImageStream and BuildConfig in OpenShift
   // Then start the build for the test suite image
   sh """
-    oc apply -f ${imageStreamPath} -n ${project}
-    oc apply -f ${buildConfigPath} -n ${project}
-    oc start-build ${testSuiteName} -n ${project} --follow
+    oc apply -f "${imageStreamPath}" -n ${project}
+    oc apply -f "${buildConfigPath}" -n ${project}
+    oc start-build "${testSuiteName}" -n ${project} --follow
   """
 }
