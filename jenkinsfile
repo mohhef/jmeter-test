@@ -29,5 +29,15 @@ node('master'){
       oc login --insecure-skip-tls-verify=true --token=${authToken} ${apiURL}
   """
 
+  // Checkout the test suite repo into your Jenkins agent workspace
+  // You can also use the "checkout scm" Jenkins step here if you like
+  int slashIdx = gitURL.indexOf("://")
+  String urlWithCreds = gitURL.substring(0, slashIdx + 3) +
+          "\"${gitUser}:${gitPass}\"@" + gitURL.substring(slashIdx + 3);
 
+  sh """
+    rm -rf ${workspace}/${gitName}
+    git clone -b ${gitBranch} ${urlWithCreds} ${gitName}
+    echo `pwd && ls -l`
+  """
 }
