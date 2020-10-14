@@ -23,6 +23,4 @@ node('master'){
   project = "jmeter-test"    // Set the OpenShift project you're working in
   testSuiteName = "jmeter-test-suite"   // Name of the job/build/imagestream
 
-  print(${jobTemplatePath})
-
 }
