@@ -25,4 +25,11 @@ node('master'){
 
 echo workspace
 
+  // Login to the OpenShift cluster
+  sh """
+      set +x
+      oc login --insecure-skip-tls-verify=true --token=${authToken} ${apiURL}
+  """
+
+
 }
