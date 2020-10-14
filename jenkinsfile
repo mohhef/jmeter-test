@@ -2,6 +2,8 @@ print "----------------------------------------------------"
 print "                 JMeter Testing"
 print "----------------------------------------------------"
 
+node('master'){
+
   workspace = pwd()   // Set the main workspace in your Jenkins agent
 
   authToken = "cL1bn4TXVINKagzl18bcY9shvQXBzqWe-alwCrzIjc4"      // Get your user auth token for OpenShift
@@ -22,3 +24,5 @@ print "----------------------------------------------------"
   testSuiteName = "jmeter-test-suite"   // Name of the job/build/imagestream
 
   print(${jobTemplatePath})
+
+}
