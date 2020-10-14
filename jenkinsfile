@@ -37,7 +37,7 @@ node('master'){
           "\"${gitUser}:${gitPass}\"@" + gitURL.substring(slashIdx + 3);
 
   sh """
-    rm -rf ${workspace}/${gitName}
+    rm -rf "${workspace}/${gitName}"
     git clone -b ${gitBranch} ${urlWithCreds} ${gitName}
     echo `pwd && ls -l`
   """
