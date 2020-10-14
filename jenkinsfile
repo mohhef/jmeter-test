@@ -24,10 +24,10 @@ node('master'){
   testSuiteName = "jmeter-test-suite"   // Name of the job/build/imagestream
 
   // Login to the OpenShift cluster
-  sh """
-      set +x
-      oc login --insecure-skip-tls-verify=true --token=${authToken} ${apiURL}
-  """
+//   sh """
+//       set +x
+//       oc login --insecure-skip-tls-verify=true --token=${authToken} ${apiURL}
+//   """
 
 
 }
