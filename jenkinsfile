@@ -6,6 +6,7 @@ node('master'){
 
   workspace = pwd()   // Set the main workspace in your Jenkins agent
 
+  echo $workspace
   authToken = "cL1bn4TXVINKagzl18bcY9shvQXBzqWe-alwCrzIjc4"      // Get your user auth token for OpenShift
   apiURL = "https://192.168.2.37:8443"         // URL for your OpenShift cluster API
 
@@ -16,9 +17,9 @@ node('master'){
   gitBranch = "master"      // Set the branch of your test suite repo
 
   // Set location of OpenShift objects in workspace
-//   buildConfigPath = "${workspace}/${gitName}/build-config.yaml"
-//   imageStreamPath = "${workspace}/${gitName}/image-stream.yaml"
-//   jobTemplatePath = "${workspace}/${gitName}/job-template.yaml"
+  buildConfigPath = "${workspace}/${gitName}/build-config.yaml"
+  imageStreamPath = "${workspace}/${gitName}/image-stream.yaml"
+  jobTemplatePath = "${workspace}/${gitName}/job-template.yaml"
 
   project = "jmeter-test"    // Set the OpenShift project you're working in
   testSuiteName = "jmeter-test-suite"   // Name of the job/build/imagestream
@@ -39,5 +40,13 @@ node('master'){
     rm -rf ${workspace}/${gitName}
     git clone -b ${gitBranch} ${urlWithCreds} ${gitName}
     echo `pwd && ls -l`
+  """
+
+  // Create your ImageStream and BuildConfig in OpenShift
+  // Then start the build for the test suite image
+  sh """
+    oc apply -f ${imageStreamPath} -n ${project}
+    oc apply -f ${buildConfigPath} -n ${project}
+    oc start-build ${testSuiteName} -n ${project} --follow
   """
 }
