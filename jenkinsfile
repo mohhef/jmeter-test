@@ -16,9 +16,9 @@ node('master'){
   gitBranch = "master"      // Set the branch of your test suite repo
 
   // Set location of OpenShift objects in workspace
-  buildConfigPath = "${workspace}/${gitName}/build-config.yaml"
-  imageStreamPath = "${workspace}/${gitName}/image-stream.yaml"
-  jobTemplatePath = "${workspace}/${gitName}/job-template.yaml"
+//   buildConfigPath = "${workspace}/${gitName}/build-config.yaml"
+//   imageStreamPath = "${workspace}/${gitName}/image-stream.yaml"
+//   jobTemplatePath = "${workspace}/${gitName}/job-template.yaml"
 
   project = "jmeter-test"    // Set the OpenShift project you're working in
   testSuiteName = "jmeter-test-suite"   // Name of the job/build/imagestream
