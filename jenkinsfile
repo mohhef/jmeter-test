@@ -103,7 +103,7 @@ node('master'){
 
        publishHTML (target: [
           allowMissing: true,
-          alwaysLinkToLastBuild: false,
+          alwaysLinkToLastBuild: true,
           keepAll: true,
           reportDir: "${workspace}/HttpRequest-reports",
           reportFiles: "index.html",
