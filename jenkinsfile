@@ -75,7 +75,7 @@ node('master'){
 
      // Register a web hook to notify on test completion
      hook = registerWebhook()
-  //    hookUrl = hook.getURL()
+     hookUrl = hook.getURL()
   // echo hook
   //   echo hook
   //   echo hookUrl
