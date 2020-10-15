@@ -9,7 +9,7 @@ cat results/$1Results.jtl
 # Curl back to webhook step in Jenkins pipeline
 # Give pipeline the name of the test suite pod
 
-curl -X POST -d "$HOSTNAME" "http://e12159fd1007.ngrok.io/$2"
+curl -X POST -d "OK" "http://e12159fd1007.ngrok.io/webhook-step/$2"
 
 # Sleep for a few minutes to give pipeline time to retrieve dashboard files
-#sleep 600
+sleep 100
