@@ -3,7 +3,6 @@ kind: BuildConfig
 metadata:
   creationTimestamp: '2020-10-10T19:57:46Z'
   name: jmeter-test-suite
-  namespace: jmeter-test
 spec:
   nodeSelector: null
   output:
