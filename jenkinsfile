@@ -84,6 +84,7 @@ node('master'){
 
       oc process -f "${jobTemplatePath}" -p \
       WEBHOOK_URL="${hookUrl}" \
+      BUILD_NUM=${currentBuild.number} \
       -n ${project} | oc create -f - -n ${project}
     """
 

@@ -9,6 +9,7 @@ objects:
     name: jmeter-test-suite
     labels:
       jobName: jmeter-test-suite
+      buildNumber: ${BUILD_NUM}
   spec:
     completions: 1
     parallelism: 1
@@ -17,6 +18,7 @@ objects:
         name: jmeter-test-suite
         labels:
           jobName: jmeter-test-suite
+          buildNumber: ${BUILD_NUM}
       spec:
         containers:
         - name: jmeter-test-suite
@@ -36,6 +38,9 @@ objects:
 parameters:
 - description: Pipeline webhook URL to tell Jenkins when tests are completed
   name: WEBHOOK_URL
+  required: true
+- description: Pipeline build number from Jenkins
+  name: BUILD_NUM
   required: true
 # - description: Test file name
 #   name: FILE_NAME
