@@ -78,8 +78,10 @@ node('master'){
 
      echo "Waiting for POST to ${hook.getURL()}"
 
-      hookUrl = hook.getURL()
-  // echo hook
-  //   echo hook
-  //   echo hookUrl
+    hookUrl = hook.getURL()
+
+    sh """
+      oc delete job/${testSuiteName} -n ${project} --ignore-not-found=true
+    """
+
 }
