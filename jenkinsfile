@@ -70,7 +70,6 @@ node('master'){
   // // Get file name without .jmx
   //   file = testFileNames[1]
   //   fileName = file.replaceAll('.jmx','')
-
   //   print "Running JMeter tests: ${fileName}"
 
      // Register a web hook to notify on test completion
