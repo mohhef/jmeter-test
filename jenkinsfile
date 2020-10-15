@@ -63,7 +63,7 @@ node('master'){
   String files = findFiles(glob: '**/jmeter/*.jmx')
 
   // // Split file names into testFileNames array
-   testFileNames = files.split('\n')
+  // testFileNames = files.split('\n')
   // echo imageURL
 
 
