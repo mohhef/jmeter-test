@@ -53,7 +53,7 @@ node('master'){
   // Get latest JMeter image from project to assign to job template
   String imageURL = sh (
     script:"""
-      oc get is/rhel-${testSuiteName} -n ${project} --output=jsonpath={.status.dockerImageRepository}
+      oc get is/${testSuiteName} -n ${project} --output=jsonpath={.status.dockerImageRepository}
       """,
     returnStdout: true
   )
