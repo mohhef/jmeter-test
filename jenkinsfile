@@ -93,10 +93,28 @@ node('master'){
     jobPod = waitForWebhook hook
     print "POST to webhook recieved from test suite pod: ${jobPod}"
 
+    try{
     print jobPod
       // Get reports directory from pod for HTML report dashboard
       sh """
         oc rsync "${jobPod}:/jmeter/HttpRequest-reports" "${workspace}" -n ${project}
       """
+
+       publishHTML (target: [
+          allowMissing: true,
+          alwaysLinkToLastBuild: false,
+          keepAll: true,
+          reportDir: "${workspace}/HttpRequest-reports",
+          reportFiles: "index.html",
+          reportName: "HttpRequest Report"
+        ])
+    } catch(err){
+      print "An exception occurred while parsing the JMeter reports: ${err}"
+    } finally {
+      sh """
+        oc delete job jmeter-test-suite -n ${project} --ignore-not-found=true
+        oc delete pods -l jobName=jmeter-test-suite -n ${project} --ignore-not-found=true
+      """
+    } // finally
 
 }
