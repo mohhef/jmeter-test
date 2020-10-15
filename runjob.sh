@@ -8,7 +8,7 @@ cat results/$1Results.jtl
 
 # Curl back to webhook step in Jenkins pipeline
 # Give pipeline the name of the test suite pod
-#curl -X POST -d "$HOSTNAME" $1
+curl -X POST -d "$HOSTNAME" $2
 
 # Sleep for a few minutes to give pipeline time to retrieve dashboard files
 #sleep 600

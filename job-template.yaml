@@ -25,6 +25,7 @@ objects:
           - /jmeter/runjob.sh
           args:
           - HttpRequest
+          - ${WEBHOOK_URL}
           imagePullPolicy: Always
           resources: {}
           terminationMessagePath: /dev/termination-log
@@ -32,7 +33,10 @@ objects:
         restartPolicy: Never
         securityContext: {}
         terminationGracePeriodSeconds: 30
-# parameters:
+parameters:
+- description: Pipeline webhook URL to tell Jenkins when tests are completed
+  name: WEBHOOK_URL
+  required: true
 # - description: Test file name
 #   name: FILE_NAME
 #   required: true

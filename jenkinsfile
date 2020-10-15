@@ -82,8 +82,15 @@ node('master'){
     sh """
       oc delete "job/${testSuiteName}" -n ${project} --ignore-not-found=true
 
-      oc process -f "${jobTemplatePath}" \
+      oc process -f "${jobTemplatePath}" -p \
+      WEBHOOK_URL=${hookUrl} \
       -n ${project} | oc create -f - -n ${project}
     """
+
+    // Block and wait for job to return
+    // Job will return the name of the pod
+    print "Waiting for test to complete..."
+    jobPod = waitForWebhook hook
+    print "POST to webhook recieved from test suite pod: ${jobPod}"
 
 }
