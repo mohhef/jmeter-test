@@ -82,6 +82,9 @@ node('master'){
 
     sh """
       oc delete job/${testSuiteName} -n ${project} --ignore-not-found=true
+
+      oc process -f ${jobTemplatePath} -p \
+      -n ${project} | oc create -f - -n ${project}
     """
 
 }
