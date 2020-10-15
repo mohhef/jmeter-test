@@ -49,4 +49,14 @@ node('master'){
     oc apply -f "${buildConfigPath}" -n ${project}
     oc start-build "${testSuiteName}" -n ${project} --follow
   """
+
+  // Get latest JMeter image from project to assign to job template
+  String imageURL = sh (
+    script:"""
+      oc get is/rhel-${testSuiteName} -n ${project} --output=jsonpath={.status.dockerImageRepository}
+      """,
+    returnStdout: true
+  )
+
+  echo imageURL
 }
