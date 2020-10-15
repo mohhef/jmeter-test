@@ -83,7 +83,7 @@ node('master'){
       oc delete "job/${testSuiteName}" -n ${project} --ignore-not-found=true
 
       oc process -f "${jobTemplatePath}" -p \
-      WEBHOOK_URL=${hookUrl} \
+      WEBHOOK_URL="${hookUrl}" \
       -n ${project} | oc create -f - -n ${project}
     """
 
