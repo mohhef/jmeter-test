@@ -62,21 +62,21 @@ node('master'){
   // Pipeline Utility Steps Plugin --> findFiles
   String files = findFiles(glob: '**/jmeter/*.jmx')
 
-  // Split file names into testFileNames array
-  testFileNames = files.split('\n')
-  echo imageURL
+  // // Split file names into testFileNames array
+   testFileNames = files.split('\n')
+  // echo imageURL
 
 
-  // Get file name without .jmx
-    file = testFileNames[1]
-    fileName = file.replaceAll('.jmx','')
+  // // Get file name without .jmx
+  //   file = testFileNames[1]
+  //   fileName = file.replaceAll('.jmx','')
 
-    print "Running JMeter tests: ${fileName}"
+  //   print "Running JMeter tests: ${fileName}"
 
-    // Register a web hook to notify on test completion
-    hook = registerWebhook()
-    hookUrl = hook.getURL()
+  //   // Register a web hook to notify on test completion
+  //   hook = registerWebhook()
+  //   hookUrl = hook.getURL()
 
-    echo hook
-    echo hookUrl
+  //   echo hook
+  //   echo hookUrl
 }
