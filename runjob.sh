@@ -12,4 +12,4 @@ cat results/$1Results.jtl
 curl -X POST -d "$HOSTNAME" "http://e12159fd1007.ngrok.io/webhook-step/$2"
 
 # Sleep for a few minutes to give pipeline time to retrieve dashboard files
-sleep 10
+sleep 10000
