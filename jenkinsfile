@@ -96,7 +96,7 @@ node('master'){
     print jobPod
       // Get reports directory from pod for HTML report dashboard
       sh """
-        oc rsync ${jobPod}:/jmeter/${HttpRequest}-reports ${workspace} -n ${project}
+        oc rsync ${jobPod}:/jmeter/HttpRequest-reports ${workspace} -n ${project}
       """
 
 }
