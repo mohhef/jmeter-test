@@ -77,7 +77,7 @@ node('master'){
 
      echo "Waiting for POST to ${hook.getURL()}"
 
-    hookUrl = hook.getURL()
+    hookUrl = hook.getToken()
 
     sh """
       oc delete "job/${testSuiteName}" -n ${project} --ignore-not-found=true
