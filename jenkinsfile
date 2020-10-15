@@ -93,7 +93,6 @@ node('master'){
     jobPod = waitForWebhook hook
     print "POST to webhook recieved from test suite pod: ${jobPod}"
 
-     try {
       // Get reports directory from pod for HTML report dashboard
       sh """
         oc rsync ${jobPod}:/jmeter/${fileName}-reports ${workspace} -n ${project}
