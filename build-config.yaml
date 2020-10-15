@@ -1,13 +1,9 @@
-apiVersion: build.openshift.io/v1
+apiVersion: v1
 kind: BuildConfig
 metadata:
   creationTimestamp: '2020-10-10T19:57:46Z'
   name: jmeter-test-suite
   namespace: jmeter-test
-  resourceVersion: '75196'
-  selfLink: >-
-    /apis/build.openshift.io/v1/namespaces/jmeter-test/buildconfigs/jmeter-test-suite
-  uid: ddcb76f9-0b32-11eb-b601-00155d380100
 spec:
   nodeSelector: null
   output:
