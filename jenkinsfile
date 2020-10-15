@@ -78,7 +78,7 @@ node('master'){
 
      echo "Waiting for POST to ${hook.getURL()}"
 
-  //    hookUrl = hook.getURL()
+      hookUrl = hook.getURL()
   // echo hook
   //   echo hook
   //   echo hookUrl
