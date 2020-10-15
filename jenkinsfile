@@ -13,7 +13,7 @@ node('master'){
   gitUser = "mohhef"        // Set your Git username
   gitPass = "Dontgetangry1."        // Set your Git password
   gitURL = "https://github.com/mohhef/jmeter-test"         // Set the URL of your test suite repo
-  gitName = "jj-jenkins"        // Set the name of your test suite repo
+  gitName = "jmeter-test"        // Set the name of your test suite repo
   gitBranch = "master"      // Set the branch of your test suite repo
 
   // Set location of OpenShift objects in workspace
@@ -21,7 +21,7 @@ node('master'){
   imageStreamPath = "${workspace}/${gitName}/image-stream.yaml"
   jobTemplatePath = "${workspace}/${gitName}/job-template.yaml"
 
-  project = "jmeter-test"    // Set the OpenShift project you're working in
+  project = "jj-jenkins"    // Set the OpenShift project you're working in
   testSuiteName = "jmeter-test-suite"   // Name of the job/build/imagestream
 
   //Login to the OpenShift cluster
