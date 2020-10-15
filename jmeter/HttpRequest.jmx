@@ -79,7 +79,7 @@
               <connectTime>true</connectTime>
             </value>
           </objProp>
-          <stringProp name="filename"></stringProp>
+          <stringProp name="filename">D:\learning\jmeter-learning\jmeter-test\jmeter\results.jtl</stringProp>
         </ResultCollector>
         <hashTree/>
       </hashTree>
