@@ -20,7 +20,7 @@ objects:
       spec:
         containers:
         - name: jmeter-test-suite
-          image: "192.168.2.37:8443/jj-jenkins/jmeter-test-suite"
+          image: "172.30.1.1:5000/jj-jenkins/jmeter-test-suite"
           command:
           - /jmeter/runjob.sh
           args:
