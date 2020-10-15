@@ -14,6 +14,9 @@ RUN apt-get clean && \
                 iputils-ping \
                 unzip
 
+# Install curl
+RUN apt -y install curl
+
 # Install JMeter
 RUN   mkdir /jmeter \
       && cd /jmeter/ \
