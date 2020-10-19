@@ -116,7 +116,7 @@ node('master'){
           reportName: "HttpRequest Report"
         ])
 
-    new File("${workspace}/HttpRequestResults.jtl").withInputStream { stream ->
+    new File("${workspace}/results/HttpRequestResults.jtl").withInputStream { stream ->
         stream.eachLine { line ->
           if(line.contains("false")){
             throw new Exception("A test has failed")
