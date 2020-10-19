@@ -116,13 +116,17 @@ node('master'){
           reportName: "HttpRequest Report"
         ])
 
-    new File("${workspace}/results/HttpRequestResults.jtl").withInputStream { stream ->
-        stream.eachLine { line ->
-          if(line.contains("false")){
-            throw new Exception("A test has failed")
-          }
-        }
+    def version = readFile "${workspace}/results/HttpRequestResults.jtl"
+    if(version.contains("false")){
+      throw new Exception("A test has failed")
     }
+    // new File("${workspace}/results/HttpRequestResults.jtl").withInputStream { stream ->
+    //     stream.eachLine { line ->
+    //       if(line.contains("false")){
+    //         throw new Exception("A test has failed")
+    //       }
+    //     }
+    // }
         
     } catch(err){
       print "An exception occurred while parsing the JMeter reports: ${err}"
