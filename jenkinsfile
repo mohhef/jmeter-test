@@ -118,6 +118,7 @@ node('master'){
 
     def version = readFile "${workspace}/results/HttpRequestResults.jtl"
     if(version.contains("false")){
+      currentBuild.result = 'FAILURE'
       throw new Exception("A test has failed")
     }
     // new File("${workspace}/results/HttpRequestResults.jtl").withInputStream { stream ->
