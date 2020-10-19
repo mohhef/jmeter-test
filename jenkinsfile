@@ -115,6 +115,15 @@ node('master'){
           reportFiles: "index.html",
           reportName: "HttpRequest Report"
         ])
+
+    new File("${workspace}/HttpRequestResults.jtl").withInputStream { stream ->
+        stream.eachLine { line ->
+          if(line.contains("false")){
+            throw new Exception("A test has failed")
+          }
+        }
+    }
+        
     } catch(err){
       print "An exception occurred while parsing the JMeter reports: ${err}"
     } finally {
