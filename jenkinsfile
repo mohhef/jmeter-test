@@ -7,8 +7,8 @@ node('master'){
   workspace = pwd()   // Set the main workspace in your Jenkins agent
 
   echo workspace
-  authToken = "xs8oSDR06D8PDxJOoFL2_D4Z_WDE0esC_MfvX3Wyh48"      // Get your user auth token for OpenShift
-  apiURL = "https://192.168.2.37:8443"         // URL for your OpenShift cluster API
+  authToken = "x"      // Get your user auth token for OpenShift
+  apiURL = "https://xxx.xxx.x.xx:xxxx"         // URL for your OpenShift cluster API
 
   gitUser = "x"        // Set your Git username
   gitPass = "x"        // Set your Git password
